@@ -146,18 +146,3 @@ def inference_test():
 
 if __name__ == '__main__':
     inference_test()
-
-# model flops:1M 800 epoch
-# test_result: {'total_num': 2532, 'correct_num': 2326, 'test_acc': 91.86413902053712}
-
-# model flops:1M 1600 epoch
-# test_result: {'total_num': 2532, 'correct_num': 2376, 'test_acc': 93.8388625592417}
-
-# model flops:2.3M 800 epoch
-# test_result: {'total_num': 2532, 'correct_num': 2352, 'test_acc': 92.8909952606635}
-
-# lM ./checkpoint/mobilenetv2_s_RAdam_warmup_cosine_cutmix_labelsmooth_randaug_mixup_pretrained/best_model.pt
-# test_result: {'total_num': 2532, 'correct_num': 2376, 'test_acc': 93.8388625592417, 'pos_acc': 83.50398179749716, 'neg_acc': 99.33454325468844}
-
-# 2.3M./checkpoint/mobilenetv2_s_RAdam_warmup_cosine_cutmix_labelsmooth_randaug_mixup_2.3M/best_model.pt
-# test_result: {'total_num': 2532, 'correct_num': 2368, 'test_acc': 93.52290679304897, 'pos_acc': 82.70762229806598, 'neg_acc': 99.27404718693285}

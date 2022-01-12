@@ -15,7 +15,9 @@ def main():
     args = get_args()
     torch.manual_seed(args.seed)
 
-    shape = (224,224,3)    
+    shape = (224,224,3) 
+    # shape = (32,32,3)    
+   
 
     """ define dataloader """
     train_loader, valid_loader, test_loader = make_dataloader(args)

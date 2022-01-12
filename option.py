@@ -4,24 +4,29 @@ def get_args():
     parser = argparse.ArgumentParser()
 
     # model architecture & checkpoint
-    parser.add_argument('--model', default='ResNet50', choices=('ResNet50', 'RegNet', 'EfficientNet'),
+    parser.add_argument('--model', default='MobileNetV2_S', choices=('ResNet50', 'RegNet', 'EfficientNet','MobileNetV2_S'),
                         help='optimizer to use (ResNet50 | RegNet | EfficientNet)')
     parser.add_argument('--norm', default='batchnorm', choices=('batchnorm', 'evonorm'),
                         help='normalization to use (batchnorm | evonorm)')
-    parser.add_argument('--num_classes', type=int, default=6)
+    parser.add_argument('--num_classes', type=int, default=2)
     parser.add_argument('--pretrained', type=int, default=1)
-    parser.add_argument('--pretrained_path', type=str, default=None)
-    parser.add_argument('--checkpoint_dir', type=str, default='/data_hdd/hoseong/checkpoint_onlytrain')
+    parser.add_argument('--pretrained_path', type=str, default='./checkpoint/mobilenetv2_s_RAdam_warmup_cosine_cutmix_labelsmooth_randaug_mixup_2.3M/best_model.pt')
+    parser.add_argument('--checkpoint_dir', type=str, default='./checkpoint')
     parser.add_argument('--checkpoint_name', type=str, default='')
     parser.add_argument('--zero_gamma', action='store_true', default=False)
 
     # data loading
+    parser.add_argument('--DATASET_DIR', type=str, default= '../DATASETS')
+    parser.add_argument('--TRAIN_DATASETS', type=str, default='../train_xxx.txt')
+    parser.add_argument('--TEST_DATASETS', type=str, default='../test_xxx.txt')
+    parser.add_argument('--input_size', type=int, default=(32, 32))
+
     parser.add_argument('--num_workers', type=int, default=0)
     parser.add_argument('--seed', type=int, default=42, help='random seed')
 
     # training hyper parameters
     parser.add_argument('--batch_size', type=int, default=64)
-    parser.add_argument('--epochs', type=int, default=120)
+    parser.add_argument('--epochs', type=int, default=800)
     parser.add_argument('--log_interval', type=int, default=20)
     parser.add_argument('--evaluate', action='store_true', default=False)
     parser.add_argument('--mixup', type=float, default=0.0, help='mixup alpha')

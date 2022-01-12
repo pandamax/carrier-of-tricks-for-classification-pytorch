@@ -10,7 +10,7 @@ def get_args():
                         help='normalization to use (batchnorm | evonorm)')
     parser.add_argument('--num_classes', type=int, default=2)
     parser.add_argument('--pretrained', type=int, default=1)
-    parser.add_argument('--pretrained_path', type=str, default='./checkpoint/mobilenetv2_s_RAdam_warmup_cosine_cutmix_labelsmooth_randaug_mixup_2.3M/best_model.pt')
+    parser.add_argument('--pretrained_path', type=str, default='./checkpoint/xxx.pt')
     parser.add_argument('--checkpoint_dir', type=str, default='./checkpoint')
     parser.add_argument('--checkpoint_name', type=str, default='')
     parser.add_argument('--zero_gamma', action='store_true', default=False)
